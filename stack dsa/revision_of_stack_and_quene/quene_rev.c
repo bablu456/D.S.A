@@ -11,7 +11,7 @@ void push(int a){
     }else{
         noe = noe + 1;
         start = 0;
-        quene[++end];
+        quene[++end] = a;
     }
 }
 void pop(){
@@ -34,10 +34,19 @@ void peek(){
         printf("%d",quene[end]);
     }
 }
+void show(){
+    if(noe == 0){
+        printf("this quene is empty ! ");
+    }else{
+        for(int i=start;i<=end;i++){
+            printf("%d ",quene[i]);
+        }
+    }
+}
 int main()
 {
     int choice, item;
-    printf("1.enquene\n2.Dequene\n3.peek\n4.show\n5.show");
+    printf("1.enquene\n2.Dequene\n3.peek\n4.show\n5.Exit\n");
     while (1)
     {
         printf("Enetr the  choices : ");
@@ -56,11 +65,12 @@ int main()
             peek();
             break;
         case 4:
-            display();
+           show();
             break;
         case 5:
-            show();
-            break;
+            return 0;
+        default :
+        printf("please enter corrct option ! ");
         }
     }
     return 0;
